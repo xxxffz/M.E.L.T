@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+
+<copperspec id="Parser_dc_parse" type="LALR1" version="1.1">
+  <preamble>
+     <code><![CDATA[
+import edu.umn.cs.melt.copper.runtime.engines.semantics.VirtualLocation;
+     ]]></code>
+  </preamble>
+  <attribute id="context" type="common.DecoratedNode">
+    <code>context = common.TopNode.singleton;</code>
+  </attribute>
+
+
+
+  <term id="EmptyString">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<emptystring/>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_IntLit_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<plus><charset><range><lower>0</lower><upper>9</upper></range></charset></plus>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_Plus_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>+</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_Dash_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>-</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_Star_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>*</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_Slash_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>/</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_Hat_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>^</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_LParen_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>(</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_RParen_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>)</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_LessThan_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>&lt;</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_LessThanOrEqualTo_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>&lt;=</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_GreaterThan_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>&gt;</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_GreaterThanOrEqualTo_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>&gt;=</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_EqualTo_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>==</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_NotEqualTo_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>!=</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_AndOp_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>&amp;&amp;</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_OrOp_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>||</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_NotOp_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<string>!</string>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_WhiteSpace_t">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<plus><charset><loosechar>&#9;</loosechar><loosechar>&#10;</loosechar><loosechar> </loosechar></charset></plus>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <term id="dc_LineComment_P">
+    <code><![CDATA[
+RESULT = new common.TerminalRecord(lexeme,virtualLocation.getFileName(),virtualLocation.getLine(),virtualLocation.getColumn());
+    ]]></code>
+    <classes>
+    </classes>
+    <regex>
+<concat><charset><loosechar>/</loosechar></charset><charset><loosechar>/</loosechar></charset><kleenestar><dot/></kleenestar></concat>    </regex>
+    <dominates>
+    </dominates>
+    <submits>
+    </submits>
+  </term>
+  <nonterm id="dc_Root_c" />
+  <nonterm id="dc_LogiOr_c" />
+  <nonterm id="dc_LogiAnd_c" />
+  <nonterm id="dc_Cmpe_c" />
+  <nonterm id="dc_Cmplg_c" />
+  <nonterm id="dc_Expr_c" />
+  <nonterm id="dc_Term_c" />
+  <nonterm id="dc_Phrase_c" />
+  <nonterm id="dc_Factor_c" />
+  <nonterm id="dc_LogiNot_c" />
+  <nonterm id="dc_Root" />
+  <nonterm id="dc_Expr" />
+
+  <start>
+    <nonterm id="dc_Root_c"/>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </start>
+
+  <prod id="Production_dc_root_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Proot_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Root_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LogiOr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_orOp_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PorOp_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiOr_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LogiOr_c"/>
+    <nonterm id="dc_OrOp_t"/>
+    <nonterm id="dc_LogiAnd_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_andOp_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PandOp_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiAnd_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LogiAnd_c"/>
+    <nonterm id="dc_AndOp_t"/>
+    <nonterm id="dc_Cmpe_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_notEqualTo_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PnotEqualTo_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmpe_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmpe_c"/>
+    <nonterm id="dc_NotEqualTo_t"/>
+    <nonterm id="dc_Cmplg_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_equalTo_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PequalTo_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmpe_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmpe_c"/>
+    <nonterm id="dc_EqualTo_t"/>
+    <nonterm id="dc_Cmplg_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_lessThan_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PlessThan_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmplg_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmplg_c"/>
+    <nonterm id="dc_LessThan_t"/>
+    <nonterm id="dc_Expr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_lessThanOrEqualTo_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PlessThanOrEqualTo_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmplg_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmplg_c"/>
+    <nonterm id="dc_LessThanOrEqualTo_t"/>
+    <nonterm id="dc_Expr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_greaterThan_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PgreaterThan_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmplg_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmplg_c"/>
+    <nonterm id="dc_GreaterThan_t"/>
+    <nonterm id="dc_Expr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_greaterThanOrEqualTo_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PgreaterThanOrEqualTo_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmplg_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmplg_c"/>
+    <nonterm id="dc_GreaterThanOrEqualTo_t"/>
+    <nonterm id="dc_Expr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_add_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Padd_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Expr_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Expr_c"/>
+    <nonterm id="dc_Plus_t"/>
+    <nonterm id="dc_Term_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_sub_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Psub_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Expr_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Expr_c"/>
+    <nonterm id="dc_Dash_t"/>
+    <nonterm id="dc_Term_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_mul_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Pmul_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Term_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Term_c"/>
+    <nonterm id="dc_Star_t"/>
+    <nonterm id="dc_Phrase_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_div_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Pdiv_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Term_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Term_c"/>
+    <nonterm id="dc_Slash_t"/>
+    <nonterm id="dc_Phrase_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_pow_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Ppow_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Phrase_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Factor_c"/>
+    <nonterm id="dc_Hat_t"/>
+    <nonterm id="dc_Phrase_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_LogiOrLogiAnd_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PLogiOrLogiAnd_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiOr_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LogiAnd_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_LogiAndCmpe_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PLogiAndCmpe_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiAnd_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmpe_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_CmpeCmlg_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PCmpeCmlg_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmpe_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Cmplg_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_CmplgExpr_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PCmplgExpr_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Cmplg_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Expr_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_exprTerm_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PexprTerm_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Expr_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Term_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_termPhrase_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PtermPhrase_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Term_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Phrase_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_phraseFactor_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PphraseFactor_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Phrase_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_Factor_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_FactorLogiNot_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PFactorLogiNot_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_Factor_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LogiNot_c"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_nested_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.Pnested_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiNot_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_LParen_t"/>
+    <nonterm id="dc_LogiOr_c"/>
+    <nonterm id="dc_RParen_t"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+  <prod id="Production_dc_integerConstant_c" class="main" precedence="0">
+    <code><![CDATA[
+RESULT = new dc.PintegerConstant_c(_children);
+    ]]></code>
+    <lhs><nonterm id="dc_LogiNot_c"/></lhs>
+    <rhs>
+    <nonterm id="dc_IntLit_t"/>
+    </rhs>
+    <layout><term id="EmptyString"/><term id="dc_WhiteSpace_t"/><term id="dc_LineComment_P"/></layout>
+  </prod>
+
+</copperspec>
