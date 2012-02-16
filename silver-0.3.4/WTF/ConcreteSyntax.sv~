@@ -1,0 +1,59 @@
+grammar cst ;
+
+nonterminal   Root	with ast_Root;
+nonterminal   varName	with ast_varName;
+nonterminal   Stmts 	with ast_Stmts;
+nonterminal   Stmt 	with ast_Stmt;
+nonterminal   Decl 	with ast_Decl;
+nonterminal   Expr	with ast_Expr;
+
+synthesized attribute ast_Root::Root;
+synthesized attribute ast_Stmt::Stmt;
+synthesized attribute ast_Expr::Expr;
+
+
+concrete production root_c
+r::Root ::= 'main' '(' ')' '{' s::Stmt '}' {
+  r.ast_Root = root(s.ast_Stmt);
+}
+
+
+concrete productions stmts_c ss::Stmts
+  | empty::Stmts     	       { ss.ast_Stmts = emptyStmts(empty.ast_Stmts); }
+  | '{' stmtStmts::Stmts '}'   { ss.ast_Stmts = stmtStmtsStmts(stmtStmts.ast_Stmts); }
+
+
+concrete productions stmt_c s::Stmt
+  | d::Decl		       { s.ast_Stmt = declStmt(d.ast_Decl); }
+  | ss::Stmts 	    	       { s.ast_Stmt = stmtsStmt(ss.ast_Stmts); }
+  | '(' rhs::Stmt ')'	       { s.ast_Stmt = Stmt(rhs.ast_Stmt); }
+  | 'if' '(' e::Expr ')' st::Stmt 	 
+    	 	 	       { s.ast_Stmt = ifthen(e.ast_Expr, st.ast_Stmt); }
+  | 'if' '(' e::Expr ')' st::Stmt 'else' sf::Stmt
+    	     	     	       { s.ast_Stmt = ifelse(e.ast_Expr, st.ast_Stmt, sf.ast_Stmt); }
+  | v::varName '=' e::Expr     { s.ast_Stmt = varExprStmt(v.ast_varName, e.ast_Expr); }
+  | 'print' '(' e::Expr ')'    { s.ast_Stmt = printStmt(e.ast_Expr); }
+  | 'for' '(' v::varName '=' e1::Expr 'to' e2::Expr ')' se::Stmt
+    	       		       { s.ast_Stmt = forStmt(v.ast_varName, e1.ast_Expr, e2.ast_Expr, se.ast_Stmt); }
+
+
+concrete productions decl_c d::Decl
+  | 'Integer'   v::varName     { d.ast_Decl = intDecl(v.ast_varName); }
+  | 'Float' 	v::varName     { d.ast_Decl = floatDecl(v.ast_varName); }
+  | 'Boolean'	v::varName     { d.ast_Decl = boolDecl(v.ast_varName); }
+  | 'String' 	v::varName     { d.ast_Decl = stringDecl(v.ast_varName); }
+
+
+concrete productions expr_c e::Expr
+  | v::varName		       { e.ast_Expr = varExpr(v.ast_varName); }
+
+  | i::IntConst      	       { e.ast_Expr = intConst(i); }
+  | f::FloatConst    	       { e.ast_Expr = floatConst(f); }
+  | b::BoolConst     	       { e.ast_Expr = boolConst(b); }
+  | s::StringConst   	       { e.ast_Expr = stringConst(s); }
+
+  | a1::Expr '+' a2::Expr      { e.ast_Expr = add(a1.ast_Expr, a2.ast_Expr); }
+  | s1::Expr '-' s2::Expr      { e.ast_Expr = sub(s1.ast_Expr, s2.ast_Expr); }
+  | m1::Expr '*' m2::Expr      { e.ast_Expr = mul(m1.ast_Expr, m2.ast_Expr); }
+  | d1::Expr '/' d2::Expr      { e.ast_Expr = div(d1.ast_Expr, d2.ast_Expr); }
+  | v::varName '(' p::Expr ')' { e.ast_Expr = func(v.ast_varName, p.ast_Expr); }
