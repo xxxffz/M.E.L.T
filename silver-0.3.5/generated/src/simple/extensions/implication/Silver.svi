@@ -1,0 +1,12 @@
+declaredName 'simple:extensions:implication'
+moduleNames ['core', 'silver:langutil', 'silver:langutil:pp', 'simple:concretesyntax', 'simple:abstractsyntax']
+allDeps ['simple:terminals', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil:pp', 'silver:langutil', 'core']
+defs [term('Implication.sv', 8, 9, 'simple:extensions:implication:Implies', /[\=][\>]/),
+ prod('Implication.sv', 11, 1, [], signature('simple:extensions:implication:P_simple_extensions_implicationImplication_sv_11_1', [element('l', nt('simple:concretesyntax:Expr', [])), element('_G_1', term('simple:extensions:implication:Implies')), element('r', nt('simple:concretesyntax:Expr', []))], element('e', nt('simple:concretesyntax:Expr', [])))),
+ prod('Implication.sv', 14, 20, [], signature('simple:extensions:implication:implies', [element('l', nt('simple:abstractsyntax:Expr', [])), element('r', nt('simple:abstractsyntax:Expr', []))], element('e', nt('simple:abstractsyntax:Expr', [])))),
+ p@('Implication.sv', 14, 20, 'simple:extensions:implication:implies', [], nt('simple:abstractsyntax:Expr', []) ::= [nt('simple:abstractsyntax:Expr', []), nt('simple:abstractsyntax:Expr', [])], [fwd('Implication.sv', 19, 2, nt('simple:abstractsyntax:Expr', []))])]
+exportedGrammars []
+condBuild []
+syntax [term('simple:extensions:implication:Implies', /[\=][\>]/, [prec(6)]),
+ prod('simple:extensions:implication:P_simple_extensions_implicationImplication_sv_11_1',[],nt('simple:concretesyntax:Expr', []),[nt('simple:concretesyntax:Expr', []), term('simple:extensions:implication:Implies'), nt('simple:concretesyntax:Expr', [])],[])]
+parsers []

@@ -1,0 +1,67 @@
+<project name='WTF' default='dist' basedir='.'>
+  <description>Build the grammar WTF </description>
+
+  <property environment='env'/>
+  <property name='jg' location='/home/ark/M.E.L.T/silver-0.3.4/generated/'/>
+  <property name='sh' location='/home/ark/M.E.L.T/silver-0.3.4/'/>
+  <property name='bin' location='${jg}/bin'/>
+  <property name='src' location='${jg}/src'/>
+
+  <path id='lib.classpath'>
+    <fileset dir='${sh}/jars' includes='SilverRuntime.jar CopperRuntime.jar CopperCompiler.jar' />
+  </path>
+
+  <path id='src.classpath'>
+    <pathelement location='${src}' />
+  </path>
+
+  <path id='compile.classpath'>
+    <path refid='src.classpath'/>
+    <path refid='lib.classpath'/>
+  </path>
+
+  <taskdef name='copper' classname='edu.umn.cs.melt.copper.ant.CopperAntTask' classpathref='lib.classpath'/>
+
+
+  <target name='init'>
+
+    <!-- Create the time stamp -->
+    <tstamp>
+      <format property='TIME' pattern='MM/dd/yyyy hh:mm aa'/>
+    </tstamp>
+
+    <mkdir dir='${bin}'/>
+  </target>
+
+  <target name='dist' depends='grammars'>
+
+    <pathconvert refid='lib.classpath' pathsep=' ' property='man.classpath' />
+    <jar destfile='WTF.jar' basedir='${bin}'>
+       <include name='WTF/*.class' />
+       <include name='core/*.class' />
+      <manifest>
+       <attribute name='Main-Class' value='WTF.Main' />
+       <attribute name='Class-Path' value='${man.classpath}' />
+       <attribute name='Built-By' value='${user.name}' />
+       <section name='version'>
+         <attribute name='Specification-Version' value='' />
+         <attribute name='Implementation-Version' value='${TIME}' />
+       </section>
+      </manifest>
+    </jar>
+
+  </target>
+
+  <target name='grammars' depends='init, copper'>
+      <javac debug='on' source='1.5' classpathref='compile.classpath' srcdir='${src}' destdir='${bin}' includeantruntime='false'>
+       <include name='WTF/*.java' />
+       <include name='core/*.java' />
+      </javac>
+  </target>
+
+  <target name='copper'>
+    <copper fullClassName='WTF.Parser_WTF_parse' inputFile='${src}/WTF/Parser_WTF_parse.copper' outputFile='${src}/WTF/Parser_WTF_parse.java' skin='xml' warnUselessNTs='no' dump='true' dumpType='html' dumpOnlyOnError='true' dumpFile='Parser_WTF_parse.copperdump.html'/>
+  </target>
+
+
+</project>

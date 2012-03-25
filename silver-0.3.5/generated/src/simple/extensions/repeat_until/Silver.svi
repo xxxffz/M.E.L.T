@@ -1,0 +1,14 @@
+declaredName 'simple:extensions:repeat_until'
+moduleNames ['core', 'silver:langutil', 'simple:concretesyntax', 'simple:abstractsyntax']
+allDeps ['simple:terminals', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil', 'core']
+defs [term('RepeatUntil.sv', 7, 9, 'simple:extensions:repeat_until:Repeat', /repeat/),
+ term('RepeatUntil.sv', 8, 9, 'simple:extensions:repeat_until:Until', /until/),
+ prod('RepeatUntil.sv', 11, 1, [], signature('simple:extensions:repeat_until:P_simple_extensions_repeat_untilRepeatUntil_sv_11_1', [element('_G_4', term('simple:extensions:repeat_until:Repeat')), element('body', nt('simple:concretesyntax:Stmts', [])), element('_G_2', term('simple:extensions:repeat_until:Until')), element('cond', nt('simple:concretesyntax:Expr', [])), element('_G_0', term('simple:terminals:Semicolon'))], element('s', nt('simple:concretesyntax:StmtMatched', [])))),
+ prod('RepeatUntil.sv', 14, 20, [], signature('simple:extensions:repeat_until:repeatStmt', [element('body', nt('simple:abstractsyntax:Stmt', [])), element('cond', nt('simple:abstractsyntax:Expr', []))], element('s', nt('simple:abstractsyntax:Stmt', [])))),
+ p@('RepeatUntil.sv', 14, 20, 'simple:extensions:repeat_until:repeatStmt', [], nt('simple:abstractsyntax:Stmt', []) ::= [nt('simple:abstractsyntax:Stmt', []), nt('simple:abstractsyntax:Expr', [])], [fwd('RepeatUntil.sv', 18, 2, nt('simple:abstractsyntax:Stmt', []))])]
+exportedGrammars []
+condBuild []
+syntax [term('simple:extensions:repeat_until:Repeat', /repeat/, [classes(['simple:terminals:KEYWORDS'])]),
+ term('simple:extensions:repeat_until:Until', /until/, [classes(['simple:terminals:KEYWORDS'])]),
+ prod('simple:extensions:repeat_until:P_simple_extensions_repeat_untilRepeatUntil_sv_11_1',[],nt('simple:concretesyntax:StmtMatched', []),[term('simple:extensions:repeat_until:Repeat'), nt('simple:concretesyntax:Stmts', []), term('simple:extensions:repeat_until:Until'), nt('simple:concretesyntax:Expr', []), term('simple:terminals:Semicolon')],[])]
+parsers []

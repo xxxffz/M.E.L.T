@@ -1,0 +1,13 @@
+declaredName 'simple:extensions:expr_if'
+moduleNames ['core', 'silver:langutil', 'silver:langutil:pp', 'simple:concretesyntax', 'simple:abstractsyntax']
+allDeps ['simple:terminals', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil:pp', 'silver:langutil', 'core']
+defs [term('Expr.sv', 8, 9, 'simple:extensions:expr_if:Then', /then/),
+ term('Expr.sv', 9, 9, 'simple:extensions:expr_if:Else', /else/),
+ prod('Expr.sv', 12, 1, [], signature('simple:extensions:expr_if:P_simple_extensions_expr_ifExpr_sv_12_1', [element('_G_5', term('simple:terminals:If')), element('c', nt('simple:concretesyntax:Expr', [])), element('_G_3', term('simple:extensions:expr_if:Then')), element('t', nt('simple:concretesyntax:Expr', [])), element('_G_1', term('simple:extensions:expr_if:Else')), element('e1', nt('simple:concretesyntax:Expr', []))], element('e', nt('simple:concretesyntax:Expr', [])))),
+ prod('Expr.sv', 15, 20, [], signature('simple:extensions:expr_if:ifthenelse', [element('c', nt('simple:abstractsyntax:Expr', [])), element('t', nt('simple:abstractsyntax:Expr', [])), element('e1', nt('simple:abstractsyntax:Expr', []))], element('e', nt('simple:abstractsyntax:Expr', []))))]
+exportedGrammars []
+condBuild []
+syntax [term('simple:extensions:expr_if:Then', /then/, [classes(['simple:terminals:KEYWORDS'])]),
+ term('simple:extensions:expr_if:Else', /else/, [classes(['simple:terminals:KEYWORDS']),prec(4)]),
+ prod('simple:extensions:expr_if:P_simple_extensions_expr_ifExpr_sv_12_1',[],nt('simple:concretesyntax:Expr', []),[term('simple:terminals:If'), nt('simple:concretesyntax:Expr', []), term('simple:extensions:expr_if:Then'), nt('simple:concretesyntax:Expr', []), term('simple:extensions:expr_if:Else'), nt('simple:concretesyntax:Expr', [])],[])]
+parsers []

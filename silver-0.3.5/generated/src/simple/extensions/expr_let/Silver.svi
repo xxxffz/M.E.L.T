@@ -1,0 +1,15 @@
+declaredName 'simple:extensions:expr_let'
+moduleNames ['core', 'silver:langutil', 'silver:langutil:pp', 'simple:concretesyntax', 'simple:abstractsyntax']
+allDeps ['simple:terminals', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil:pp', 'silver:langutil', 'core']
+defs [term('Let.sv', 8, 9, 'simple:extensions:expr_let:Let', /let/),
+ term('Let.sv', 9, 9, 'simple:extensions:expr_let:In', /in/),
+ term('Let.sv', 10, 9, 'simple:extensions:expr_let:End', /end/),
+ prod('Let.sv', 13, 1, [], signature('simple:extensions:expr_let:P_simple_extensions_expr_letLet_sv_13_1', [element('_G_4', term('simple:extensions:expr_let:Let')), element('s', nt('simple:concretesyntax:Stmts', [])), element('_G_2', term('simple:extensions:expr_let:In')), element('e1', nt('simple:concretesyntax:Expr', [])), element('_G_0', term('simple:extensions:expr_let:End'))], element('e', nt('simple:concretesyntax:Expr', [])))),
+ prod('Let.sv', 16, 20, [], signature('simple:extensions:expr_let:letExpr', [element('s', nt('simple:abstractsyntax:Stmt', [])), element('e1', nt('simple:abstractsyntax:Expr', []))], element('e', nt('simple:abstractsyntax:Expr', []))))]
+exportedGrammars []
+condBuild []
+syntax [term('simple:extensions:expr_let:Let', /let/, [classes(['simple:terminals:KEYWORDS'])]),
+ term('simple:extensions:expr_let:In', /in/, [classes(['simple:terminals:KEYWORDS'])]),
+ term('simple:extensions:expr_let:End', /end/, [classes(['simple:terminals:KEYWORDS'])]),
+ prod('simple:extensions:expr_let:P_simple_extensions_expr_letLet_sv_13_1',[],nt('simple:concretesyntax:Expr', []),[term('simple:extensions:expr_let:Let'), nt('simple:concretesyntax:Stmts', []), term('simple:extensions:expr_let:In'), nt('simple:concretesyntax:Expr', []), term('simple:extensions:expr_let:End')],[])]
+parsers []

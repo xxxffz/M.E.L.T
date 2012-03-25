@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int a; 
+    a = 456; 
+    int b; 
+    b = 132; 
+    while ( ( !(b == 0)) ) {
+	if ( ( !( !(( !(a < b)) && ( !(a == b))))) )
+	    a = (a - b); 
+	else 
+	    b = (b - a); 
+    }
+    printf ("%d", a); 
+    printf ("%s", "\n"); 
+}
+

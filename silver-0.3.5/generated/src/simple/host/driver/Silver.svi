@@ -1,0 +1,10 @@
+declaredName 'simple:host:driver'
+moduleNames ['core', 'silver:langutil', 'silver:langutil:pp', 'simple:concretesyntax', 'simple:abstractsyntax']
+allDeps ['simple:terminals', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil:pp', 'silver:langutil', 'core']
+defs [fun('Driver.sv', 8, 9, [], signature('simple:host:driver:driver', [element('args', string), element('io_in', io), element('the_parser', fun([string, string], nt('core:ParseResult', [nt('simple:concretesyntax:Root', [])])))], element('__func__lhs', io))),
+ p@('Driver.sv', 8, 9, 'simple:host:driver:driver', [], io ::= [string, io, fun([string, string], nt('core:ParseResult', [nt('simple:concretesyntax:Root', [])]))], [loc('Driver.sv', 12, 23, 'simple:host:driver:driver:local:isF', nt('core:IOVal', [bool])),
+ loc('Driver.sv', 15, 23, 'simple:host:driver:driver:local:text', nt('core:IOVal', [string]))])]
+exportedGrammars []
+condBuild []
+syntax []
+parsers []

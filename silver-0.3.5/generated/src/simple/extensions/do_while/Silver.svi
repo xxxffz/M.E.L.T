@@ -1,0 +1,12 @@
+declaredName 'simple:extensions:do_while'
+moduleNames ['core', 'silver:langutil', 'simple:concretesyntax', 'simple:abstractsyntax', 'simple:extensions:repeat_until']
+allDeps ['simple:terminals', 'simple:extensions:repeat_until', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil', 'core']
+defs [term('DoWhile.sv', 15, 9, 'simple:extensions:do_while:Do', /do/),
+ prod('DoWhile.sv', 18, 1, [], signature('simple:extensions:do_while:P_simple_extensions_do_whileDoWhile_sv_18_1', [element('_G_6', term('simple:extensions:do_while:Do')), element('body', nt('simple:concretesyntax:Stmt', [])), element('_G_4', term('simple:terminals:While')), element('_G_3', term('simple:terminals:LeftParen')), element('cond', nt('simple:concretesyntax:Expr', [])), element('_G_1', term('simple:terminals:RightParen')), element('_G_0', term('simple:terminals:Semicolon'))], element('s', nt('simple:concretesyntax:StmtMatched', [])))),
+ prod('DoWhile.sv', 21, 20, [], signature('simple:extensions:do_while:dowhile', [element('body', nt('simple:abstractsyntax:Stmt', [])), element('cond', nt('simple:abstractsyntax:Expr', []))], element('s', nt('simple:abstractsyntax:Stmt', [])))),
+ p@('DoWhile.sv', 21, 20, 'simple:extensions:do_while:dowhile', [], nt('simple:abstractsyntax:Stmt', []) ::= [nt('simple:abstractsyntax:Stmt', []), nt('simple:abstractsyntax:Expr', [])], [fwd('DoWhile.sv', 25, 2, nt('simple:abstractsyntax:Stmt', []))])]
+exportedGrammars []
+condBuild []
+syntax [term('simple:extensions:do_while:Do', /do/, [classes(['simple:terminals:KEYWORDS'])]),
+ prod('simple:extensions:do_while:P_simple_extensions_do_whileDoWhile_sv_18_1',[],nt('simple:concretesyntax:StmtMatched', []),[term('simple:extensions:do_while:Do'), nt('simple:concretesyntax:Stmt', []), term('simple:terminals:While'), term('simple:terminals:LeftParen'), nt('simple:concretesyntax:Expr', []), term('simple:terminals:RightParen'), term('simple:terminals:Semicolon')],[])]
+parsers []

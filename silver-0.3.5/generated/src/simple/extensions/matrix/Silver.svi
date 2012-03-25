@@ -1,0 +1,20 @@
+declaredName 'simple:extensions:matrix'
+moduleNames ['silver:langutil', 'silver:langutil:pp', 'simple:concretesyntax', 'simple:abstractsyntax', 'core']
+allDeps ['simple:terminals', 'core', 'simple:abstractsyntax', 'simple:concretesyntax', 'silver:langutil:pp', 'silver:langutil']
+defs [term('Matrix.sv', 9, 9, 'simple:extensions:matrix:Matrix', /Matrix/),
+ term('Matrix.sv', 10, 9, 'simple:extensions:matrix:LBrack', /[\[]/),
+ term('Matrix.sv', 11, 9, 'simple:extensions:matrix:RBrack', /[\]]/),
+ prod('Expr.sv', 4, 1, [], signature('simple:extensions:matrix:P_simple_extensions_matrixExpr_sv_4_1', [element('id', term('simple:terminals:Id')), element('_G_4', term('simple:extensions:matrix:LBrack')), element('r', nt('simple:concretesyntax:Expr', [])), element('_G_2', term('simple:terminals:Comma')), element('c', nt('simple:concretesyntax:Expr', [])), element('_G_0', term('simple:extensions:matrix:RBrack'))], element('e', nt('simple:concretesyntax:Expr', [])))),
+ prod('Expr.sv', 7, 20, [], signature('simple:extensions:matrix:matrixRef', [element('id', nt('simple:abstractsyntax:Name', [])), element('r', nt('simple:abstractsyntax:Expr', [])), element('c', nt('simple:abstractsyntax:Expr', []))], element('e', nt('simple:abstractsyntax:Expr', [])))),
+ prod('Decl.sv', 4, 1, [], signature('simple:extensions:matrix:P_simple_extensions_matrixDecl_sv_4_1', [element('_G_12', term('simple:extensions:matrix:Matrix')), element('id', term('simple:terminals:Id')), element('_G_10', term('simple:extensions:matrix:LBrack')), element('r', nt('simple:concretesyntax:Expr', [])), element('_G_8', term('simple:terminals:Comma')), element('c', nt('simple:concretesyntax:Expr', [])), element('_G_6', term('simple:extensions:matrix:RBrack')), element('ri', term('simple:terminals:Id')), element('_G_4', term('simple:terminals:Comma')), element('ci', term('simple:terminals:Id')), element('_G_2', term('simple:terminals:Eq')), element('e', nt('simple:concretesyntax:Expr', [])), element('_G_0', term('simple:terminals:Semicolon'))], element('d', nt('simple:concretesyntax:Decl', [])))),
+ prod('Decl.sv', 9, 20, [], signature('simple:extensions:matrix:declMatrix', [element('id', nt('simple:abstractsyntax:Name', [])), element('r', nt('simple:abstractsyntax:Expr', [])), element('c', nt('simple:abstractsyntax:Expr', [])), element('ri', nt('simple:abstractsyntax:Name', [])), element('ci', nt('simple:abstractsyntax:Name', [])), element('v', nt('simple:abstractsyntax:Expr', []))], element('d', nt('simple:abstractsyntax:Decl', [])))),
+ prod('Decl.sv', 50, 20, [], signature('simple:extensions:matrix:typeExprMatrix', [], element('t', nt('simple:abstractsyntax:TypeExpr', [])))),
+ prod('Decl.sv', 58, 20, [], signature('simple:extensions:matrix:matrixType', [], element('t', nt('simple:abstractsyntax:Type', []))))]
+exportedGrammars []
+condBuild []
+syntax [prod('simple:extensions:matrix:P_simple_extensions_matrixExpr_sv_4_1',[],nt('simple:concretesyntax:Expr', []),[term('simple:terminals:Id'), term('simple:extensions:matrix:LBrack'), nt('simple:concretesyntax:Expr', []), term('simple:terminals:Comma'), nt('simple:concretesyntax:Expr', []), term('simple:extensions:matrix:RBrack')],[]),
+ term('simple:extensions:matrix:Matrix', /Matrix/, [classes(['simple:terminals:KEYWORDS'])]),
+ term('simple:extensions:matrix:LBrack', /[\[]/, []),
+ term('simple:extensions:matrix:RBrack', /[\]]/, []),
+ prod('simple:extensions:matrix:P_simple_extensions_matrixDecl_sv_4_1',[],nt('simple:concretesyntax:Decl', []),[term('simple:extensions:matrix:Matrix'), term('simple:terminals:Id'), term('simple:extensions:matrix:LBrack'), nt('simple:concretesyntax:Expr', []), term('simple:terminals:Comma'), nt('simple:concretesyntax:Expr', []), term('simple:extensions:matrix:RBrack'), term('simple:terminals:Id'), term('simple:terminals:Comma'), term('simple:terminals:Id'), term('simple:terminals:Eq'), nt('simple:concretesyntax:Expr', []), term('simple:terminals:Semicolon')],[])]
+parsers []

@@ -1,0 +1,27 @@
+declaredName 'silver:langutil'
+moduleNames ['core', 'silver:langutil:pp']
+allDeps ['silver:langutil:pp', 'core']
+defs [nt('Message.sv', 7, 12, 'silver:langutil:Message', [], nt('silver:langutil:Message', [])),
+ nt('Location.sv', 4, 12, 'silver:langutil:Location', [], nt('silver:langutil:Location', [])),
+ prod('Message.sv', 13, 20, [], signature('silver:langutil:err', [element('l', nt('silver:langutil:Location', [])), element('m', string)], element('top', nt('silver:langutil:Message', [])))),
+ prod('Message.sv', 24, 20, [], signature('silver:langutil:wrn', [element('l', nt('silver:langutil:Location', [])), element('m', string)], element('top', nt('silver:langutil:Message', [])))),
+ fun('Message.sv', 40, 9, [], signature('silver:langutil:containsErrors', [element('l', [nt('silver:langutil:Message', [])]), element('wError', bool)], element('__func__lhs', bool))),
+ fun('Message.sv', 55, 9, [], signature('silver:langutil:ppMessages', [element('msgs', [nt('silver:langutil:Message', [])])], element('__func__lhs', [string]))),
+ fun('Message.sv', 62, 9, [], signature('silver:langutil:messageLte', [element('m1', nt('silver:langutil:Message', [])), element('m2', nt('silver:langutil:Message', []))], element('__func__lhs', bool))),
+ prod('Location.sv', 12, 20, [], signature('silver:langutil:loc', [element('file', string), element('line', int), element('column', int)], element('top', nt('silver:langutil:Location', [])))),
+ fun('Location.sv', 22, 9, [], signature('silver:langutil:locationLte', [element('l1', nt('silver:langutil:Location', [])), element('l2', nt('silver:langutil:Location', []))], element('__func__lhs', bool))),
+ syn('Location.sv', 6, 22, 'silver:langutil:line', [], int),
+ syn('Attributes.sv', 11, 22, 'silver:langutil:unparse', [], string),
+ syn('Attributes.sv', 16, 22, 'silver:langutil:pp', [], nt('silver:langutil:pp:Document', [])),
+ syn('Attributes.sv', 21, 22, 'silver:langutil:ast', [a], a),
+ syn('Attributes.sv', 26, 22, 'silver:langutil:location', [], nt('silver:langutil:Location', [])),
+ syncol('Attributes.sv', 31, 22, 'silver:langutil:errors', [], [nt('silver:langutil:Message', [])], ++list),
+ @('Message.sv', 7, 25, 'silver:langutil:Message', 'silver:langutil:unparse', [], nt('silver:langutil:Message', []), string),
+ @('Message.sv', 7, 34, 'silver:langutil:Message', 'silver:langutil:location', [], nt('silver:langutil:Message', []), nt('silver:langutil:Location', [])),
+ @('Location.sv', 4, 26, 'silver:langutil:Location', 'silver:langutil:unparse', [], nt('silver:langutil:Location', []), string),
+ @('Location.sv', 4, 35, 'silver:langutil:Location', 'silver:langutil:line', [], nt('silver:langutil:Location', []), int)]
+exportedGrammars []
+condBuild []
+syntax [nt([], nt('silver:langutil:Message', [])),
+ nt([], nt('silver:langutil:Location', []))]
+parsers []

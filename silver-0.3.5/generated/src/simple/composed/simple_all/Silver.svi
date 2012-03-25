@@ -1,0 +1,9 @@
+declaredName 'simple:composed:simple_all'
+moduleNames ['core', 'simple:concretesyntax', 'simple:host', 'simple:extensions:do_while', 'simple:extensions:repeat_until', 'simple:extensions:implication', 'simple:extensions:matrix', 'simple:extensions:expr_if', 'simple:extensions:expr_let']
+allDeps ['simple:host:driver', 'simple:abstractsyntax', 'simple:terminals', 'simple:extensions:expr_let', 'simple:extensions:expr_if', 'simple:extensions:matrix', 'simple:extensions:implication', 'simple:extensions:repeat_until', 'simple:extensions:do_while', 'simple:host', 'simple:concretesyntax', 'core']
+defs [fun('Main.sv', 18, 7, [], signature('simple:composed:simple_all:parse', [element('stringToParse', string), element('filenameToReport', string)], element('__func__lhs', nt('core:ParseResult', [nt('simple:concretesyntax:Root', [])])))),
+ fun('Main.sv', 28, 9, [], signature('simple:composed:simple_all:main', [element('largs', [string]), element('io_in', io)], element('__func__lhs', nt('core:IOVal', [int]))))]
+exportedGrammars ['simple:host', 'simple:extensions:implication', 'simple:extensions:repeat_until']
+condBuild []
+syntax []
+parsers [parser('Main.sv', 18, 0,'simple:composed:simple_all','simple:composed:simple_all:parse','simple:concretesyntax:Root',['simple:host', 'simple:extensions:do_while', 'simple:extensions:repeat_until', 'simple:extensions:implication', 'simple:extensions:matrix', 'simple:extensions:expr_if', 'simple:extensions:expr_let'])]

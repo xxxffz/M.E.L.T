@@ -1,0 +1,10 @@
+#include <List>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    List<int> a;
+    cons(1, a);
+    List<int> b;
+    cons(
